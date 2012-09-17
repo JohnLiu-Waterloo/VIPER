@@ -70,8 +70,10 @@
 
 <%= link_to 'New Record', new_record_path %>
 
-<%= @clusters[0]  %>
-<br />
-<%= @clusters[1]  %>
-<br />
-<%= @clusters[2]  %>
+<%=
+for i in 0..1
+  puts "<br />"
+    puts @clusters[i][0]
+end
+%>
+
