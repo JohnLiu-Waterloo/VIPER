@@ -11,8 +11,8 @@ class CloseRelationsController < ApplicationController
     return d
   end
 
-	def self.findCloseRelations(clusters, user_ar)
-  	@n = 3
+	def self.findCloseRelations(clusters, user_ar, n)
+  	@n = n 
     @m = 25
     @k = 2
     @f = 1
