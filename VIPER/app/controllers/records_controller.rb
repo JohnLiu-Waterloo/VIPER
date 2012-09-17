@@ -125,8 +125,7 @@ class RecordsController < ApplicationController
 			end
     end
 
-    return best_clustering
-    friends_table = CloseRelationsController.findCloseRelations(best_clustering, user_ar, @n)
+    friends_table = CloseRelationsController.findCloseRelations(best_clustering, user_ar, @n, @k)
      # return best_clustering
   	return friends_table
   end
