@@ -11,10 +11,10 @@ class CloseRelationsController < ApplicationController
     return d
   end
 
-	def self.findCloseRelations(clusters, user_ar, n)
+	def self.findCloseRelations(clusters, user_ar, n, k)
   	@n = n 
     @m = 25
-    @k = 2
+    @k = k
     @f = 1
     
     distance_ar = Array.new(@n)
