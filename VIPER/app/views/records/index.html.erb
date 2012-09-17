@@ -1,0 +1,77 @@
+<h1>Listing records</h1>
+
+<table>
+  <tr>
+    <th>F0</th>
+    <th>F1</th>
+    <th>F2</th>
+    <th>F3</th>
+    <th>F4</th>
+    <th>F5</th>
+    <th>F6</th>
+    <th>F7</th>
+    <th>F8</th>
+    <th>F9</th>
+    <th>F10</th>
+    <th>F11</th>
+    <th>F12</th>
+    <th>F13</th>
+    <th>F14</th>
+    <th>F15</th>
+    <th>F16</th>
+    <th>F17</th>
+    <th>F18</th>
+    <th>F19</th>
+    <th>F20</th>
+    <th>F21</th>
+    <th>F22</th>
+    <th>F23</th>
+    <th>F24</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @records.each do |record| %>
+  <tr>
+    <td><%= record.f0 %></td>
+    <td><%= record.f1 %></td>
+    <td><%= record.f2 %></td>
+    <td><%= record.f3 %></td>
+    <td><%= record.f4 %></td>
+    <td><%= record.f5 %></td>
+    <td><%= record.f6 %></td>
+    <td><%= record.f7 %></td>
+    <td><%= record.f8 %></td>
+    <td><%= record.f9 %></td>
+    <td><%= record.f10 %></td>
+    <td><%= record.f11 %></td>
+    <td><%= record.f12 %></td>
+    <td><%= record.f13 %></td>
+    <td><%= record.f14 %></td>
+    <td><%= record.f15 %></td>
+    <td><%= record.f16 %></td>
+    <td><%= record.f17 %></td>
+    <td><%= record.f18 %></td>
+    <td><%= record.f19 %></td>
+    <td><%= record.f20 %></td>
+    <td><%= record.f21 %></td>
+    <td><%= record.f22 %></td>
+    <td><%= record.f23 %></td>
+    <td><%= record.f24 %></td>
+    <td><%= link_to 'Show', record %></td>
+    <td><%= link_to 'Edit', edit_record_path(record) %></td>
+    <td><%= link_to 'Destroy', record, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Record', new_record_path %>
+
+<%= @clusters[0]  %>
+<br />
+<%= @clusters[1]  %>
+<br />
+<%= @clusters[2]  %>

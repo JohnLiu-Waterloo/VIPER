@@ -1,0 +1,117 @@
+<%= form_for(@record) do |f| %>
+  <% if @record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% @record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :f0 %><br />
+    <%= f.check_box :f0 %>
+  </div>
+  <div class="field">
+    <%= f.label :f1 %><br />
+    <%= f.check_box :f1 %>
+  </div>
+  <div class="field">
+    <%= f.label :f2 %><br />
+    <%= f.check_box :f2 %>
+  </div>
+  <div class="field">
+    <%= f.label :f3 %><br />
+    <%= f.check_box :f3 %>
+  </div>
+  <div class="field">
+    <%= f.label :f4 %><br />
+    <%= f.check_box :f4 %>
+  </div>
+  <div class="field">
+    <%= f.label :f5 %><br />
+    <%= f.check_box :f5 %>
+  </div>
+  <div class="field">
+    <%= f.label :f6 %><br />
+    <%= f.check_box :f6 %>
+  </div>
+  <div class="field">
+    <%= f.label :f7 %><br />
+    <%= f.check_box :f7 %>
+  </div>
+  <div class="field">
+    <%= f.label :f8 %><br />
+    <%= f.check_box :f8 %>
+  </div>
+  <div class="field">
+    <%= f.label :f9 %><br />
+    <%= f.check_box :f9 %>
+  </div>
+  <div class="field">
+    <%= f.label :f10 %><br />
+    <%= f.check_box :f10 %>
+  </div>
+  <div class="field">
+    <%= f.label :f11 %><br />
+    <%= f.check_box :f11 %>
+  </div>
+  <div class="field">
+    <%= f.label :f12 %><br />
+    <%= f.check_box :f12 %>
+  </div>
+  <div class="field">
+    <%= f.label :f13 %><br />
+    <%= f.check_box :f13 %>
+  </div>
+  <div class="field">
+    <%= f.label :f14 %><br />
+    <%= f.check_box :f14 %>
+  </div>
+  <div class="field">
+    <%= f.label :f15 %><br />
+    <%= f.check_box :f15 %>
+  </div>
+  <div class="field">
+    <%= f.label :f16 %><br />
+    <%= f.check_box :f16 %>
+  </div>
+  <div class="field">
+    <%= f.label :f17 %><br />
+    <%= f.check_box :f17 %>
+  </div>
+  <div class="field">
+    <%= f.label :f18 %><br />
+    <%= f.check_box :f18 %>
+  </div>
+  <div class="field">
+    <%= f.label :f19 %><br />
+    <%= f.check_box :f19 %>
+  </div>
+  <div class="field">
+    <%= f.label :f20 %><br />
+    <%= f.check_box :f20 %>
+  </div>
+  <div class="field">
+    <%= f.label :f21 %><br />
+    <%= f.check_box :f21 %>
+  </div>
+  <div class="field">
+    <%= f.label :f22 %><br />
+    <%= f.check_box :f22 %>
+  </div>
+  <div class="field">
+    <%= f.label :f23 %><br />
+    <%= f.check_box :f23 %>
+  </div>
+  <div class="field">
+    <%= f.label :f24 %><br />
+    <%= f.check_box :f24 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

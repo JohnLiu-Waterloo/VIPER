@@ -1,0 +1,61 @@
+<%= form_for(@close_relation) do |f| %>
+  <% if @close_relation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@close_relation.errors.count, "error") %> prohibited this close_relation from being saved:</h2>
+
+      <ul>
+      <% @close_relation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :userid %><br />
+    <%= f.number_field :userid %>
+  </div>
+  <div class="field">
+    <%= f.label :r0 %><br />
+    <%= f.number_field :r0 %>
+  </div>
+  <div class="field">
+    <%= f.label :r1 %><br />
+    <%= f.number_field :r1 %>
+  </div>
+  <div class="field">
+    <%= f.label :r2 %><br />
+    <%= f.number_field :r2 %>
+  </div>
+  <div class="field">
+    <%= f.label :r3 %><br />
+    <%= f.number_field :r3 %>
+  </div>
+  <div class="field">
+    <%= f.label :r4 %><br />
+    <%= f.number_field :r4 %>
+  </div>
+  <div class="field">
+    <%= f.label :r5 %><br />
+    <%= f.number_field :r5 %>
+  </div>
+  <div class="field">
+    <%= f.label :r6 %><br />
+    <%= f.number_field :r6 %>
+  </div>
+  <div class="field">
+    <%= f.label :r7 %><br />
+    <%= f.number_field :r7 %>
+  </div>
+  <div class="field">
+    <%= f.label :r8 %><br />
+    <%= f.number_field :r8 %>
+  </div>
+  <div class="field">
+    <%= f.label :r9 %><br />
+    <%= f.number_field :r9 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

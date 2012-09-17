@@ -1,0 +1,43 @@
+<h1>Listing close_relations</h1>
+
+<table>
+  <tr>
+    <th>Userid</th>
+    <th>R0</th>
+    <th>R1</th>
+    <th>R2</th>
+    <th>R3</th>
+    <th>R4</th>
+    <th>R5</th>
+    <th>R6</th>
+    <th>R7</th>
+    <th>R8</th>
+    <th>R9</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @close_relations.each do |close_relation| %>
+  <tr>
+    <td><%= close_relation.userid %></td>
+    <td><%= close_relation.r0 %></td>
+    <td><%= close_relation.r1 %></td>
+    <td><%= close_relation.r2 %></td>
+    <td><%= close_relation.r3 %></td>
+    <td><%= close_relation.r4 %></td>
+    <td><%= close_relation.r5 %></td>
+    <td><%= close_relation.r6 %></td>
+    <td><%= close_relation.r7 %></td>
+    <td><%= close_relation.r8 %></td>
+    <td><%= close_relation.r9 %></td>
+    <td><%= link_to 'Show', close_relation %></td>
+    <td><%= link_to 'Edit', edit_close_relation_path(close_relation) %></td>
+    <td><%= link_to 'Destroy', close_relation, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Close relation', new_close_relation_path %>
