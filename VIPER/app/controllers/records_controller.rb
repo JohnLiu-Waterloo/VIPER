@@ -34,11 +34,6 @@ class RecordsController < ApplicationController
   end
 	
   def clusterUsers
-    @n = 3 
-    @m = 25 
-    @k = 2
-    @iter = 1
-
     # extract records, and convert them to an array of hashes
     record_ar = Record.find(:all)
     user_ar = Array.new()
@@ -59,7 +54,12 @@ class RecordsController < ApplicationController
     end
   	total_distance_for_best_clustering = -1
 
-    for iter_count in 1..@iter
+   @n = user_ar.length 
+   @m = 25 
+   @k = 2
+   @iter = 10
+
+   for iter_count in 1..@iter
     	numbers = (0..(@n-1)).to_a.shuffle
 		
       clusterID = Array.new(@n)
@@ -124,7 +124,9 @@ class RecordsController < ApplicationController
 				best_clustering = clusters
 			end
     end
-    friends_table = CloseRelationsController.findCloseRelations(best_clustering, user_ar)
+
+    return best_clustering
+    friends_table = CloseRelationsController.findCloseRelations(best_clustering, user_ar, @n)
      # return best_clustering
   	return friends_table
   end
