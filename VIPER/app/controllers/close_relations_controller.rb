@@ -15,7 +15,7 @@ class CloseRelationsController < ApplicationController
   	@n = n 
     @m = 25
     @k = k
-    @f = 1
+    @f = 3
     
     distance_ar = Array.new(@n)
   	for i in 0..(@n-1)
@@ -25,14 +25,17 @@ class CloseRelationsController < ApplicationController
   		end
     end
 
-    # Find the close relations
+    # Clear the table in order to update relations list
+    CloseRelation.destroy_all()
+
+    # Find the close relations, and write them to the table
     friends = Array.new(@n)
   	for idx in 0..(@k-1)
   		cluster_size = clusters[idx].length
 
       for i in 0..(cluster_size-1)
   			current_user = clusters[idx][i]
-        friends[current_user] = Array.new()
+        friends[current_user] = Array.new(@f)
   			
 				# put everyone in the cluster into a priority queue
   			pq = Containers::PriorityQueue.new
@@ -45,14 +48,22 @@ class CloseRelationsController < ApplicationController
 
         for j in 0..(@f-1)
   				if pq.size < 1
-          	while j < @f
-            	friends[current_user] << -1
-              j += 1
-            end
+            friends[current_user][j] = -1
           else
-           	friends[current_user] << pq.pop
+           	friends[current_user][j] = pq.pop
           end
         end
+        CloseRelation.create(:userid => current_user,
+                             :r0 => friends[current_user][0],
+                             :r1 => friends[current_user][1],
+                             :r2 => friends[current_user][2],
+                             :r0 => friends[current_user][3],
+                             :r4 => friends[current_user][4],
+                             :r5 => friends[current_user][5],
+                             :r6 => friends[current_user][6],
+                             :r7 => friends[current_user][7],
+                             :r8 => friends[current_user][8],
+                             :r9 => friends[current_user][9])
    		end
     end
     return friends
