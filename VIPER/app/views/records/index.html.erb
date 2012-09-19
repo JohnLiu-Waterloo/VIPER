@@ -72,8 +72,8 @@
 
 <% for i in 0..(@n-1) %>
   <br />
-  <% for j in 0..(@clusters[i].length-1) %>
-    <%= @clusters[i][j] %>
+  <% @clusters[i].each do |key, value| %>
+    <%= key %> , <%= value %>
     <br />
   <% end %>
 <% end %>
