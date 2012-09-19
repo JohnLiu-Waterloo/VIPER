@@ -42,7 +42,7 @@ class CloseRelationsController < ApplicationController
         for j in 0..(cluster_size-1)
   				if i != j
           	pq.push(clusters[idx][j],
-                    dist(user_ar[current_user], user_ar[clusters[idx][j]]))
+                    -1 * distance_ar[current_user][clusters[idx][j]])
   				end
         end
 
@@ -57,7 +57,7 @@ class CloseRelationsController < ApplicationController
                              :r0 => friends[current_user][0],
                              :r1 => friends[current_user][1],
                              :r2 => friends[current_user][2],
-                             :r0 => friends[current_user][3],
+                             :r3 => friends[current_user][3],
                              :r4 => friends[current_user][4],
                              :r5 => friends[current_user][5],
                              :r6 => friends[current_user][6],
