@@ -52,13 +52,13 @@ class RecordsController < ApplicationController
   		end
       user_ar << user_modified
     end
-  	total_distance_for_best_clustering = -1
 
    @n = user_ar.length 
    @m = 25 
    @k = 2
    @iter = 10
 
+   total_distance_for_best_clustering = -1
    for iter_count in 1..@iter
     	numbers = (0..(@n-1)).to_a.shuffle
 		
@@ -72,20 +72,21 @@ class RecordsController < ApplicationController
         clusters[i] = Array.new
         clusters[i] << idx
        
-        centroids[i] = user_ar[i] 
-        clusterID[i] = idx 
+        centroids[i] = user_ar[idx] 
+        clusterID[idx] = i 
       end
 
       for i in @k..(@n-1)
       	idx = numbers[i]
 
 				# for each other user, find the cluster center that is the closest
-			  closest_centroid = findClosestCentroid(centroids,	user_ar[i])
+			  closest_centroid = findClosestCentroid(centroids,	user_ar[idx])
 
-  	    addUserToCentroid(user_ar[i], centroids, closest_centroid, clusters[closest_centroid].length)
+  	    addUserToCentroid(user_ar[idx], centroids, closest_centroid,
+                          clusters[closest_centroid].length)
         
         clusters[closest_centroid] << idx
-        clusterID[i] = closest_centroid
+        clusterID[idx] = closest_centroid
 			end
 
       steps_to_convergence = 0
@@ -98,11 +99,11 @@ class RecordsController < ApplicationController
   				current_centroid = clusterID[i]
           closest_centroid = findClosestCentroid(centroids, user_ar[i])
 					
-  				if closest_centroid != closest_centroid
+  				if closest_centroid != current_centroid
           	is_converged = false
 						# remove the user from the old cluster
-  					removeUserFromCentroid(user_ar[i], centroids, current_centroid, clusters[closest_centroid].length)
-						clusters[closest_centroid].delete(i)
+  					removeUserFromCentroid(user_ar[i], centroids, current_centroid, clusters[current_centroid].length)
+						clusters[current_centroid].delete(i)
 
 						# add the user to the new cluster
             addUserToCentroid(user_ar[i], centroids, closest_centroid, clusters[closest_centroid].length)
@@ -125,9 +126,10 @@ class RecordsController < ApplicationController
 			end
     end
 
-    friends_table = CloseRelationsController.findCloseRelations(best_clustering, user_ar, @n, @k)
+    friends_table = CloseRelationsController.findCloseRelations(
+        best_clustering, user_ar, @n, @k)
      # return best_clustering
-  	return friends_table
+  	return friends_table 
   end
 
 
