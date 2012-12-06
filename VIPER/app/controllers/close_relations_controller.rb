@@ -69,6 +69,46 @@ class CloseRelationsController < ApplicationController
     return friends
   end 		
 
+  def self.getFriendsForNewUser(user_ar, newuser, newuserid,
+                                clusters, clusterid)
+    @f = 3 
+    friends = Array.new(@f)
+    # put everyone in the cluster into a priority queue
+    pq = Containers::PriorityQueue.new
+    
+    clusters.each do |cluster_pair| 
+      if cluster_pair[:clusterid] == clusterid
+        currentuser = cluster_pair[:userid]
+        if currentuser != newuserid 
+          pq.push(currentuser, -1*dist(newuser,user_ar[currentuser]))
+        end
+      end
+    end
+    
+    for j in 0..(@f-1)
+      if pq.size < 1
+        friends[j] = -1
+      else
+        friends[j] = pq.pop
+      end
+    end
+    CloseRelation.create(:userid => newuserid,
+                         :r0 => friends[0],
+                         :r1 => friends[1],
+                         :r2 => friends[2],
+                         :r3 => friends[3],
+                         :r4 => friends[4],
+                         :r5 => friends[5],
+                         :r6 => friends[6],
+                         :r7 => friends[7],
+                         :r8 => friends[8],
+                         :r9 => friends[9])
+    return friends
+  end
+
+  def getFriendsForNewUser(allrecords, record, clusters, clusterid)
+  end
+
   # GET /close_relations
   # GET /close_relations.json
   def index

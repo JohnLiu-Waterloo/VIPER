@@ -125,6 +125,28 @@
   <%= @record.f24 %>
 </p>
 
+<p>
+  <b>Cluster Number:</b> 
+  <%= @clusterid %>
+</p>
 
-<%= link_to 'Edit', edit_record_path(@record) %> |
+<p>
+  <b>Friends:</b>
+  <% @friends.each do |key, value| %>
+    <%= key %>, <%= value %> 
+    <br/>
+  <% end %>
+  <br/>
+</p>
+
+<p>
+  <b>Recommendations:</b>
+  <% @recommendations.each do |key, value| %>
+    <%= key %>, <%= value %> 
+    <br/>
+  <% end %>
+  <br/>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> 
 <%= link_to 'Back', records_path %>
